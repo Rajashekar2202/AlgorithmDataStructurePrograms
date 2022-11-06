@@ -1,30 +1,28 @@
 ﻿namespace AlgorithmDataStructurePrograms
 {
-    class Anagram
+    class BubbleSort
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            string str1 = "Heart";
-            string str2 = "Earth";
-
-            char[] chr1 = str1.ToLower().ToCharArray();
-            char[] chr2 = str2.ToLower().ToCharArray();
-
-            Array.Sort(chr1);
-            Array.Sort(chr2);
-
-            string val1 = new string(chr1);
-            Console.WriteLine(val1);
-            string val2 = new string(chr2);
-            Console.WriteLine(val2);
-
-            if (val1 == val2)
+            int[] arr = { 78, 55, 45, 98, 13 };
+            int temp;
+            for (int j = 0; j <= arr.Length - 2; j++)
             {
-                Console.WriteLine("Anagram");
+                for (int i = 0; i <= arr.Length - 2; i++)
+                {
+                    if (arr[i] > arr[i + 1])
+                    {
+                        temp = arr[i + 1];
+                        arr[i + 1] = arr[i];
+                        arr[i] = temp;
+                    }
+                }
             }
-            else
+
+            Console.WriteLine("Sorted Array");
+            foreach (int ele in arr)
             {
-                Console.WriteLine("Not Anagram");
+                Console.WriteLine(ele);
             }
         }
     }
