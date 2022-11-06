@@ -1,44 +1,29 @@
 ﻿namespace AlgorithmDataStructurePrograms
 {
-    class MergeSort
-    {   
-    public void MergeArray(int[] array, int left, int middle, int right)
+    public class PrimeNumber
+    {
+        public void PrimeNumber1()
         {
-            var leftArrayLength = middle - left + 1;
-            var rightArrayLength = right - middle;
-            var leftTempArray = new int[leftArrayLength];
-            var rightTempArray = new int[rightArrayLength];
+            int num1 = 5, num2 = 2, flag_var, i, j;
 
-            int i, j;
+            Console.WriteLine("Enter two range(input integer numbers only):");
 
-            for (i = 0; i < leftArrayLength; ++i)
-                leftTempArray[i] = array[left + i];
-            for (j = 0; j < rightArrayLength; ++j)
-                rightTempArray[j] = array[middle + 1 + j];
-
-            i = 0;
-            j = 0;
-
-            int k = left;
-
-            while (i < leftArrayLength && j < rightArrayLength)
+            Console.WriteLine("Prime numbers from 0 t0 1000 : num1, num2");
+            for (i = num1 + 1; i < num2; ++i)
             {
-                if (leftTempArray[i] <= rightTempArray[j])
+                flag_var = 0;
+                for (j = 2; j <= i / 2; ++j)
                 {
-                    array[k++] = leftTempArray[i++];
+                    if (i % j == 0)
+                    {
+                        flag_var = 1;
+                        break;
+                    }
                 }
-                else
+                if (flag_var == 0)
                 {
-                    array[k++] = rightTempArray[j++];
+                    return;
                 }
-            }
-            while (i < leftArrayLength)
-            {
-                array[k++] = leftTempArray[i++];
-            }
-            while (j < rightArrayLength)
-            {
-                array[k++] = rightTempArray[j++];
             }
         }
     }
