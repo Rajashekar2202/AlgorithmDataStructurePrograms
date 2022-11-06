@@ -1,25 +1,28 @@
 ﻿namespace AlgorithmDataStructurePrograms
 {
-    class BubbleSort
+    class InsertionSort
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
-            int[] arr = { 78, 55, 45, 98, 13 };
-            int temp;
-            for (int j = 0; j <= arr.Length - 2; j++)
+            int[] arr = new int[] { 23, 9, 2 };
+            int n = 3, i, j, val, flag;
+
+            for (i = 0; i < n; i++)
             {
-                for (int i = 0; i <= arr.Length - 2; i++)
+                val = arr[i];
+                flag = 0;
+
+                for (j = i - 1; j >= 0 && flag != 1;)
                 {
-                    if (arr[i] > arr[i + 1])
+                    if (val < arr[j])
                     {
-                        temp = arr[i + 1];
-                        arr[i + 1] = arr[i];
-                        arr[i] = temp;
+                        arr[j + 1] = arr[j];
+                        j--;
+                        arr[j + 1] = val;
                     }
+                    else flag = 1;
                 }
             }
-
-            Console.WriteLine("Sorted Array");
             foreach (int ele in arr)
             {
                 Console.WriteLine(ele);
